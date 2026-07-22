@@ -7,394 +7,448 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0a0f;--card:#111118;--border:#1e1e2a;--accent:#6c5ce7;--accent2:#a29bfe;--accent3:#00cec9;--text:#e0e0e8;--muted:#7a7a8e;--white:#ffffff;--gradient:linear-gradient(135deg,#6c5ce7,#a29bfe,#00cec9)}
+:root{--bg:#0a0a0f;--card:#111118;--card2:#16161f;--border:#1e1e2a;--accent:#6c5ce7;--accent2:#a29bfe;--accent3:#00cec9;--text:#e0e0e8;--muted:#7a7a8e;--white:#fff;--green:#00b894;--red:#ff4757;--yellow:#fdcb6e;--gradient:linear-gradient(135deg,#6c5ce7,#a29bfe,#00cec9)}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7}
-h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif}
+h1,h2,h3,h4,h5{font-family:'Space Grotesk',sans-serif}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
 
-/* Scrollbar */
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
-
-/* Navigation */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);background:rgba(10,10,15,0.8);border-bottom:1px solid var(--border);transition:all .3s}
-nav .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-nav .nav-links{display:flex;gap:2rem;list-style:none}
-nav .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .3s}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2rem;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);background:rgba(10,10,15,.85);border-bottom:1px solid var(--border)}
+nav .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav .nav-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
+nav .nav-links a{color:var(--muted);text-decoration:none;font-size:.78rem;font-weight:500;transition:color .3s;white-space:nowrap}
 nav .nav-links a:hover{color:var(--accent2)}
 
-/* Hero */
+/* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:2rem}
-.hero::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;background:radial-gradient(circle,rgba(108,92,231,0.15),transparent 70%);transform:translate(-50%,-50%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:50%;left:50%;width:700px;height:700px;background:radial-gradient(circle,rgba(108,92,231,.12),transparent 70%);transform:translate(-50%,-50%);pointer-events:none}
 .hero-content{position:relative;z-index:1}
-.hero-badge{display:inline-block;padding:.5rem 1.5rem;border:1px solid var(--accent);border-radius:50px;font-size:.8rem;color:var(--accent2);margin-bottom:2rem;letter-spacing:2px;text-transform:uppercase;animation:fadeInUp .8s ease}
-.hero h1{font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:1.1;margin-bottom:1rem;animation:fadeInUp .8s ease .1s both}
+.hero-badge{display:inline-block;padding:.5rem 1.5rem;border:1px solid var(--accent);border-radius:50px;font-size:.75rem;color:var(--accent2);margin-bottom:2rem;letter-spacing:2px;text-transform:uppercase;animation:fadeUp .8s ease}
+.hero h1{font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:1rem;animation:fadeUp .8s ease .1s both}
 .hero h1 span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero .subtitle{font-size:1.2rem;color:var(--muted);margin-bottom:1rem;animation:fadeInUp .8s ease .2s both}
-.hero .location{font-size:.95rem;color:var(--muted);margin-bottom:3rem;animation:fadeInUp .8s ease .3s both}
-.hero .location svg{vertical-align:middle;margin-right:6px}
-.hero-buttons{display:flex;gap:1rem;justify-content:center;animation:fadeInUp .8s ease .4s both}
-.btn{padding:.8rem 2rem;border-radius:12px;font-size:.9rem;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
-.btn-primary{background:var(--gradient);color:#fff;box-shadow:0 4px 30px rgba(108,92,231,0.4)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(108,92,231,0.6)}
+.hero .subtitle{font-size:1.15rem;color:var(--muted);margin-bottom:.5rem;animation:fadeUp .8s ease .2s both}
+.hero .location{font-size:.9rem;color:var(--muted);margin-bottom:2.5rem;animation:fadeUp .8s ease .3s both}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;animation:fadeUp .8s ease .4s both;flex-wrap:wrap}
+.btn{padding:.75rem 1.8rem;border-radius:10px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;border:none;font-family:'Inter',sans-serif}
+.btn-primary{background:var(--gradient);color:#fff;box-shadow:0 4px 25px rgba(108,92,231,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 35px rgba(108,92,231,.5)}
 .btn-outline{background:transparent;color:var(--accent2);border:1px solid var(--accent)}
-.btn-outline:hover{background:rgba(108,92,231,0.1)}
+.btn-outline:hover{background:rgba(108,92,231,.1)}
 
-/* Sections */
-section{padding:6rem 2rem;max-width:1100px;margin:0 auto}
-.section-label{display:inline-block;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:600}
-.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:1rem;line-height:1.2}
-.section-desc{color:var(--muted);font-size:1rem;max-width:600px;margin-bottom:3rem}
+/* SECTIONS */
+section{padding:5rem 2rem;max-width:1100px;margin:0 auto}
+.section-label{display:inline-block;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;font-weight:600}
+.section-title{font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:800;margin-bottom:.8rem;line-height:1.2}
+.section-desc{color:var(--muted);font-size:.95rem;max-width:650px;margin-bottom:2.5rem}
 
-/* Stats Row */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-bottom:4rem}
-.stat-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;transition:all .3s}
-.stat-card:hover{border-color:var(--accent);transform:translateY(-4px)}
-.stat-number{font-size:2.5rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.stat-label{color:var(--muted);font-size:.85rem;margin-top:.5rem}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;margin-bottom:3rem}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem 1rem;text-align:center;transition:all .3s}
+.stat-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.stat-number{font-size:2.2rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{color:var(--muted);font-size:.8rem;margin-top:.4rem}
 
-/* Experience Section */
-.experience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.exp-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all .3s;position:relative;overflow:hidden}
-.exp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient);opacity:0;transition:opacity .3s}
-.exp-card:hover::before{opacity:1}
-.exp-card:hover{border-color:var(--accent);transform:translateY(-4px)}
-.exp-card h3{font-size:1rem;font-weight:600;margin-bottom:.8rem;color:var(--white)}
-.exp-card p{font-size:.9rem;color:var(--muted);line-height:1.6}
-.exp-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.2rem}
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:all .3s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient);opacity:0;transition:opacity .3s}
+.card:hover::before{opacity:1}
+.card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.card h3{font-size:.95rem;font-weight:600;margin-bottom:.6rem;color:var(--white)}
+.card p,.card li{font-size:.85rem;color:var(--muted);line-height:1.6}
+.card ul{list-style:none}
+.card ul li{padding:.25rem 0;padding-left:1rem;position:relative}
+.card ul li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.7rem}
 
-/* Tools Section */
-.tools-container{display:grid;gap:2rem}
-.tool-level{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem}
-.tool-level h3{font-size:1.1rem;font-weight:700;margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem}
-.tool-level h3 .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
-.dot-advanced{background:var(--accent3)}
-.dot-intermediate{background:var(--accent2)}
-.dot-beginner{background:#fdcb6e}
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-.tool-item{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:1.2rem;transition:all .3s}
-.tool-item:hover{border-color:var(--accent);background:rgba(108,92,231,0.05)}
-.tool-item h4{font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
-.tool-item p{font-size:.8rem;color:var(--muted)}
+/* TOOL LEVELS */
+.tool-level{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;margin-bottom:1.2rem}
+.tool-level h3{font-size:1rem;font-weight:700;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.dot-g{background:var(--accent3)}.dot-p{background:var(--accent2)}.dot-y{background:var(--yellow)}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.8rem}
+.tool-item{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:1rem;transition:all .3s}
+.tool-item:hover{border-color:var(--accent);background:rgba(108,92,231,.04)}
+.tool-item h4{font-size:.85rem;font-weight:600;color:var(--white);margin-bottom:.3rem}
+.tool-item p{font-size:.75rem;color:var(--muted)}
 
-/* AI Workflow */
-.workflow-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;counter-reset:step}
-.workflow-step{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative;counter-increment:step;transition:all .3s}
-.workflow-step:hover{border-color:var(--accent);transform:translateY(-4px)}
-.workflow-step::before{content:counter(step);position:absolute;top:1.5rem;right:1.5rem;width:36px;height:36px;border-radius:50%;background:var(--gradient);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:#fff}
-.workflow-step h3{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.8rem;padding-right:3rem}
-.workflow-step ul{list-style:none}
-.workflow-step ul li{font-size:.85rem;color:var(--muted);padding:.3rem 0;padding-left:1.2rem;position:relative}
-.workflow-step ul li::before{content:'▸';position:absolute;left:0;color:var(--accent)}
+/* WORKFLOW */
+.wf-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;counter-reset:wf}
+.wf-step{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;position:relative;counter-increment:wf;transition:all .3s}
+.wf-step:hover{border-color:var(--accent);transform:translateY(-3px)}
+.wf-step::before{content:counter(wf);position:absolute;top:1.2rem;right:1.2rem;width:32px;height:32px;border-radius:50%;background:var(--gradient);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:#fff}
+.wf-step h3{font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:.6rem;padding-right:2.5rem}
+.wf-step ul{list-style:none}
+.wf-step ul li{font-size:.82rem;color:var(--muted);padding:.2rem 0;padding-left:1rem;position:relative}
+.wf-step ul li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.7rem}
 
-/* Editorial Plan */
-.editorial-header{text-align:center;margin-bottom:3rem}
-.editorial-header h3{font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
-.editorial-header p{color:var(--muted);font-size:.9rem}
-.calendar-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
-.calendar-table thead{background:rgba(108,92,231,0.1)}
-.calendar-table th{padding:1rem;text-align:left;font-size:.8rem;font-weight:600;color:var(--accent2);text-transform:uppercase;letter-spacing:1px}
-.calendar-table td{padding:1rem;font-size:.85rem;border-top:1px solid var(--border)}
-.calendar-table tr:hover td{background:rgba(108,92,231,0.03)}
-.platform-badge{display:inline-block;padding:.2rem .7rem;border-radius:6px;font-size:.7rem;font-weight:600}
-.platform-linkedin{background:rgba(10,102,194,0.2);color:#4a9eff}
-.platform-instagram{background:rgba(225,48,108,0.2);color:#e1306c}
-.platform-x{background:rgba(255,255,255,0.1);color:#fff}
-.platform-both{background:rgba(108,92,231,0.2);color:var(--accent2)}
+/* CALENDAR */
+.cal-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.cal-table thead{background:rgba(108,92,231,.08)}
+.cal-table th{padding:.8rem;text-align:left;font-size:.7rem;font-weight:600;color:var(--accent2);text-transform:uppercase;letter-spacing:1px}
+.cal-table td{padding:.8rem;font-size:.82rem;border-top:1px solid var(--border)}
+.cal-table tr:hover td{background:rgba(108,92,231,.03)}
+.badge{display:inline-block;padding:.15rem .6rem;border-radius:5px;font-size:.65rem;font-weight:600;margin:.1rem}
+.b-li{background:rgba(10,102,194,.2);color:#4a9eff}
+.b-ig{background:rgba(225,48,108,.2);color:#e1306c}
+.b-x{background:rgba(255,255,255,.08);color:#ccc}
+.b-bo{background:rgba(108,92,231,.2);color:var(--accent2)}
+.order-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--gradient);color:#fff;font-size:.7rem;font-weight:700;margin-right:.3rem}
 
-/* Video Brief */
-.video-brief{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:3rem;position:relative;overflow:hidden}
-.video-brief::before{content:'';position:absolute;top:0;right:0;width:300px;height:300px;background:radial-gradient(circle,rgba(108,92,231,0.1),transparent 70%);pointer-events:none}
-.video-brief .hook{font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:1.5rem;padding:1rem 1.5rem;background:rgba(108,92,231,0.1);border-left:3px solid var(--accent);border-radius:0 8px 8px 0}
-.video-brief .script{color:var(--muted);font-size:.95rem;line-height:1.8;margin-bottom:1.5rem}
-.video-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem}
-.meta-item{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:1rem}
-.meta-item label{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);display:block;margin-bottom:.3rem}
-.meta-item p{font-size:.85rem;color:var(--text)}
+/* VIDEO BRIEF */
+.vid-brief{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;position:relative;overflow:hidden}
+.vid-brief::before{content:'';position:absolute;top:0;right:0;width:250px;height:250px;background:radial-gradient(circle,rgba(108,92,231,.08),transparent 70%);pointer-events:none}
+.hook-box{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1.2rem;padding:1rem 1.2rem;background:rgba(108,92,231,.08);border-left:3px solid var(--accent);border-radius:0 8px 8px 0}
+.script-text{color:var(--muted);font-size:.9rem;line-height:1.8;margin-bottom:1.2rem}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.8rem;margin-top:1rem}
+.meta-item{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:.8rem}
+.meta-item label{font-size:.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);display:block;margin-bottom:.2rem;font-weight:600}
+.meta-item p{font-size:.8rem;color:var(--text)}
 
-/* Finished Posts */
-.posts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
-.post-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all .3s}
+/* POST CARDS */
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.post-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:all .3s}
 .post-card:hover{border-color:var(--accent)}
-.post-card .post-platform{font-size:.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:1rem;font-weight:600}
-.post-card .post-content{color:var(--text);font-size:.9rem;line-height:1.8;font-style:italic;white-space:pre-line}
+.post-card .post-label{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:.8rem;font-weight:600}
+.post-card .post-body{color:var(--text);font-size:.85rem;line-height:1.8;white-space:pre-line}
 
-/* Compliance */
-.compliance-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.5rem}
-.compliance-verdict{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
-.verdict-no{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.5rem;background:rgba(255,71,87,0.1);border:1px solid rgba(255,71,87,0.3);border-radius:8px;color:#ff4757;font-weight:700;font-size:1rem}
-.issues-list{list-style:none;margin-bottom:2rem}
-.issues-list li{padding:.7rem 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--muted);display:flex;align-items:flex-start;gap:.8rem}
-.issues-list li::before{content:'⚠';flex-shrink:0}
-.safe-rewrite{background:rgba(0,206,201,0.05);border:1px solid rgba(0,206,201,0.2);border-radius:12px;padding:1.5rem}
-.safe-rewrite h4{color:var(--accent3);font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:.8rem}
-.safe-rewrite p{color:var(--text);font-size:.9rem;line-height:1.8}
+/* COMPLIANCE */
+.comp-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem}
+.verdict{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1.2rem;border-radius:8px;font-weight:700;font-size:.95rem}
+.verdict-no{background:rgba(255,71,87,.1);border:1px solid rgba(255,71,87,.3);color:var(--red)}
+.issues{list-style:none;margin:1.5rem 0}
+.issues li{padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--muted);display:flex;align-items:flex-start;gap:.6rem}
+.issues li::before{content:'⚠';flex-shrink:0;font-size:.8rem}
+.safe-rewrite{background:rgba(0,206,201,.04);border:1px solid rgba(0,206,201,.2);border-radius:10px;padding:1.2rem}
+.safe-rewrite h4{color:var(--accent3);font-size:.75rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:.6rem}
+.safe-rewrite p{color:var(--text);font-size:.85rem;line-height:1.8}
 
-/* Performance */
-.perf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.perf-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem}
-.perf-card h3{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:1rem}
+/* PERF */
+.perf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.perf-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem}
+.perf-card h3{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.8rem}
 .perf-card ul{list-style:none}
-.perf-card ul li{font-size:.85rem;color:var(--muted);padding:.4rem 0;padding-left:1.2rem;position:relative}
-.perf-card ul li::before{content:'→';position:absolute;left:0;color:var(--accent3)}
+.perf-card ul li{font-size:.82rem;color:var(--muted);padding:.3rem 0;padding-left:1rem;position:relative}
+.perf-card ul li::before{content:'→';position:absolute;left:0;color:var(--accent3);font-size:.75rem}
 
-/* Assumptions */
-.assumptions{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem}
+/* DETAIL BOX */
+.detail-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;margin-top:1.2rem}
+.detail-box h4{font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.8rem}
+.detail-box p,.detail-box li{font-size:.85rem;color:var(--muted);line-height:1.7}
+.detail-box ul{list-style:none;margin-top:.5rem}
+.detail-box ul li{padding:.3rem 0;padding-left:1rem;position:relative}
+.detail-box ul li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.7rem}
+.detail-box .code-block{background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:8px;padding:1rem;margin:.8rem 0;font-family:'Courier New',monospace;font-size:.8rem;color:var(--accent2);line-height:1.6;white-space:pre-wrap}
+
+/* ASSUMPTIONS */
+.assumptions{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem}
 .assumptions ul{list-style:none}
-.assumptions ul li{font-size:.85rem;color:var(--muted);padding:.5rem 0;padding-left:1.5rem;position:relative}
+.assumptions ul li{font-size:.82rem;color:var(--muted);padding:.4rem 0;padding-left:1.2rem;position:relative}
 .assumptions ul li::before{content:'•';position:absolute;left:0;color:var(--accent)}
 
-/* Footer */
-footer{text-align:center;padding:4rem 2rem;border-top:1px solid var(--border)}
-footer p{color:var(--muted);font-size:.85rem}
-footer .name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem;display:block}
+/* ANSWER BOX */
+.answer-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;margin-bottom:1.2rem}
+.answer-box .q-label{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:.5rem;font-weight:600}
+.answer-box h3{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.8rem}
+.answer-box p,.answer-box li{font-size:.88rem;color:var(--muted);line-height:1.7}
+.answer-box ul{list-style:none;margin:.5rem 0}
+.answer-box ul li{padding:.3rem 0;padding-left:1.2rem;position:relative}
+.answer-box ul li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:.7rem}
 
-/* Animations */
-@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.animate{opacity:0;transform:translateY(30px);transition:all .6s ease}
-.animate.visible{opacity:1;transform:translateY(0)}
+/* DIVIDER */
+.divider{width:60px;height:3px;background:var(--gradient);border-radius:2px;margin:3rem auto}
 
-/* Responsive */
+/* FOOTER */
+footer{text-align:center;padding:3rem 2rem;border-top:1px solid var(--border)}
+footer p{color:var(--muted);font-size:.8rem}
+footer .name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.3rem;display:block}
+
+/* ANIM */
+@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+.anim{opacity:0;transform:translateY(25px);transition:all .5s ease}
+.anim.vis{opacity:1;transform:translateY(0)}
+
 @media(max-width:768px){
   nav .nav-links{display:none}
   .hero-buttons{flex-direction:column;align-items:center}
-  .calendar-table{font-size:.75rem}
-  .calendar-table th,.calendar-table td{padding:.6rem .4rem}
+  .cal-table{font-size:.7rem}
+  .cal-table th,.cal-table td{padding:.5rem .3rem}
+  .posts-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
 <nav>
   <div class="logo">Abhishek PT</div>
   <ul class="nav-links">
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#tools">Tools</a></li>
-    <li><a href="#ai-workflow">AI Workflow</a></li>
+    <li><a href="#q1">Experience</a></li>
+    <li><a href="#q2">Tools</a></li>
+    <li><a href="#q3">AI Workflow</a></li>
+    <li><a href="#q4">Availability</a></li>
     <li><a href="#editorial">Editorial Plan</a></li>
+    <li><a href="#video">Video Brief</a></li>
+    <li><a href="#content">Finished Content</a></li>
+    <li><a href="#ai-detail">AI Agents</a></li>
+    <li><a href="#perf">Metrics</a></li>
     <li><a href="#compliance">Compliance</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- Hero -->
+<!-- ==================== HERO ==================== -->
 <section class="hero">
   <div class="hero-content">
     <div class="hero-badge">Pre-Interview Assessment</div>
     <h1>Social Media<br><span>Marketing Manager</span></h1>
     <p class="subtitle">Elchai Group — The Universal Eye</p>
-    <p class="location">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Dubai, UAE
-    </p>
+    <p class="location">📍 Dubai, UAE</p>
     <div class="hero-buttons">
       <a href="#editorial" class="btn btn-primary">View Editorial Plan</a>
-      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      <a href="#compliance" class="btn btn-outline">Compliance Test</a>
     </div>
   </div>
 </section>
 
-<!-- Stats -->
-<section id="stats">
-  <div class="stats animate">
-    <div class="stat-card">
-      <div class="stat-number">3+</div>
-      <div class="stat-label">Years Experience</div>
+<!-- ==================== STATS ==================== -->
+<section>
+  <div class="stats anim">
+    <div class="stat-card"><div class="stat-number">3+</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-card"><div class="stat-number">150–300</div><div class="stat-label">Qualified Leads / Month</div></div>
+    <div class="stat-card"><div class="stat-number">3x</div><div class="stat-label">Campaign ROAS</div></div>
+    <div class="stat-card"><div class="stat-number">4+</div><div class="stat-label">Industries Served</div></div>
+  </div>
+</section>
+
+<!-- ==================== Q1: EXPERIENCE ==================== -->
+<section id="q1">
+  <div class="anim">
+    <div class="section-label">Question 01</div>
+    <h2 class="section-title">Social Media Experience</h2>
+    <p class="section-desc">Managing social media accounts for companies, founders, and clients — with measurable results.</p>
+  </div>
+
+  <div class="answer-box anim">
+    <div class="q-label">Answer</div>
+    <h3>3+ Years Managing Social Media Across UAE Markets</h3>
+    <p>I have 3+ years of hands-on experience managing social media accounts, digital marketing campaigns, content strategy, paid advertising, and lead generation for UAE-based companies across <strong>real estate, contracting, SaaS, and business services</strong>.</p>
+    <p style="margin-top:.8rem">My work includes:</p>
+    <ul>
+      <li>Managing company social media pages, brand communication, and visual identity on LinkedIn, Instagram, Facebook, and X</li>
+      <li>Developing monthly content calendars and multi-platform campaign strategies aligned with business goals</li>
+      <li>Creating short-form videos, carousels, infographics, and LinkedIn thought leadership content</li>
+      <li>Running Meta Ads campaigns with audience targeting, creative testing, A/B split testing, and performance optimization</li>
+      <li>Building founder-style personal branding content to position leadership as credible industry voices</li>
+      <li>Improving lead generation through data-driven creative testing and audience segmentation</li>
+    </ul>
+  </div>
+
+  <div class="stats anim" style="margin-bottom:1.5rem">
+    <div class="stat-card"><div class="stat-number">150–300</div><div class="stat-label">Qualified Leads / Month (Meta Ads, Real Estate)</div></div>
+    <div class="stat-card"><div class="stat-number">3x</div><div class="stat-label">ROAS on Digital Campaigns</div></div>
+    <div class="stat-card"><div class="stat-number">40%+</div><div class="stat-label">Engagement Improvement (Content Optimization)</div></div>
+  </div>
+
+  <div class="card-grid anim">
+    <div class="card">
+      <h3>📱 Brand Management</h3>
+      <p>Full ownership of social media pages, brand voice, visual identity, and community management across LinkedIn, Instagram, Facebook, and X.</p>
     </div>
-    <div class="stat-card">
-      <div class="stat-number">150–300</div>
-      <div class="stat-label">Qualified Leads / Month</div>
+    <div class="card">
+      <h3>📊 Content Strategy</h3>
+      <p>Monthly content calendars, campaign strategies, short-form videos, carousels, and LinkedIn thought leadership aligned with business objectives.</p>
     </div>
-    <div class="stat-card">
-      <div class="stat-number">3x</div>
-      <div class="stat-label">Campaign ROAS</div>
+    <div class="card">
+      <h3>🎯 Paid Advertising</h3>
+      <p>Meta Ads campaign setup, audience targeting, creative A/B testing, budget optimization, and performance reporting.</p>
     </div>
-    <div class="stat-card">
-      <div class="stat-number">4+</div>
-      <div class="stat-label">Industries Served</div>
+    <div class="card">
+      <h3>🚀 Lead Generation</h3>
+      <p>150–300 qualified leads per month through Meta campaigns with up to 3x ROAS in real estate verticals.</p>
+    </div>
+    <div class="card">
+      <h3>👤 Founder Branding</h3>
+      <p>Positioning founders as industry voices through personal branding content, LinkedIn articles, and video thought leadership.</p>
+    </div>
+    <div class="card">
+      <h3>⚡ Performance Optimization</h3>
+      <p>Creative testing, audience segmentation, and data-driven optimization to improve engagement, retention, and conversion rates.</p>
+    </div>
+  </div>
+
+  <div class="detail-box anim" style="margin-top:1.5rem">
+    <h4>Portfolio Links</h4>
+    <p>
+      <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/YOUR-LINKEDIN" style="color:var(--accent2)">linkedin.com/in/YOUR-LINKEDIN</a><br>
+      <strong>Portfolio:</strong> <a href="https://YOUR-PORTFOLIO-LINK" style="color:var(--accent2)">YOUR-PORTFOLIO-LINK</a>
+    </p>
+    <p style="margin-top:.5rem;color:var(--red);font-size:.8rem">⚠ Replace the links above with your actual LinkedIn and portfolio URLs before submitting.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== Q2: TOOLS ==================== -->
+<section id="q2">
+  <div class="anim">
+    <div class="section-label">Question 02</div>
+    <h2 class="section-title">Tools & Proficiency</h2>
+    <p class="section-desc">AI, content creation, editing, analytics, and social media tools with proficiency levels.</p>
+  </div>
+
+  <div class="tool-level anim">
+    <h3><span class="dot dot-g"></span> Advanced</h3>
+    <div class="tools-grid">
+      <div class="tool-item"><h4>Meta Business Suite & Ads Manager</h4><p>Campaign setup, audience targeting, creative testing, budget optimization, performance reporting</p></div>
+      <div class="tool-item"><h4>Canva</h4><p>Social media designs, carousels, presentations, marketing creatives, brand templates</p></div>
+      <div class="tool-item"><h4>CapCut</h4><p>Short-form video editing, subtitles, Reels/TikTok content, transitions, audio sync</p></div>
+      <div class="tool-item"><h4>Google Analytics</h4><p>Traffic analysis, campaign UTM tracking, audience behavior, conversion measurement</p></div>
+    </div>
+  </div>
+  <div class="tool-level anim">
+    <h3><span class="dot dot-p"></span> Intermediate</h3>
+    <div class="tools-grid">
+      <div class="tool-item"><h4>ChatGPT</h4><p>Content strategy, research, copywriting, content repurposing, campaign brainstorming</p></div>
+      <div class="tool-item"><h4>Adobe Premiere Pro</h4><p>Video editing, color grading, transitions, multi-track editing</p></div>
+      <div class="tool-item"><h4>Google Ads</h4><p>Search campaigns, keyword bidding, performance monitoring</p></div>
+      <div class="tool-item"><h4>SEO Tools (Ubersuggest, SEMrush)</h4><p>Keyword research, content optimization, competitor analysis</p></div>
+    </div>
+  </div>
+  <div class="tool-level anim">
+    <h3><span class="dot dot-y"></span> Learning / Exploring</h3>
+    <div class="tools-grid">
+      <div class="tool-item"><h4>AI Automation Agents</h4><p>AI workflow automation, content generation pipelines, agent-based marketing processes</p></div>
+      <div class="tool-item"><h4>Canva AI & CapCut AI</h4><p>AI-powered design suggestions, auto-captions, smart editing features</p></div>
     </div>
   </div>
 </section>
 
-<!-- Experience -->
-<section id="experience">
-  <div class="animate">
-    <div class="section-label">01 — Experience</div>
-    <h2 class="section-title">Social Media & Digital Marketing</h2>
-    <p class="section-desc">3+ years managing social media, campaigns, content strategy, paid ads, and lead generation for UAE-based companies.</p>
-  </div>
-  <div class="experience-grid animate">
-    <div class="exp-card">
-      <div class="exp-icon" style="background:rgba(108,92,231,0.1)">📱</div>
-      <h3>Brand Management</h3>
-      <p>Managing company social media pages, brand communication, and visual identity across all platforms.</p>
-    </div>
-    <div class="exp-card">
-      <div class="exp-icon" style="background:rgba(0,206,201,0.1)">📊</div>
-      <h3>Content Strategy</h3>
-      <p>Developing content calendars, campaign strategies, short-form videos, carousels, and LinkedIn thought leadership.</p>
-    </div>
-    <div class="exp-card">
-      <div class="exp-icon" style="background:rgba(162,155,254,0.1)">🎯</div>
-      <h3>Paid Advertising</h3>
-      <p>Running Meta Ads campaigns, analyzing performance data, and optimizing through creative testing and audience segmentation.</p>
-    </div>
-    <div class="exp-card">
-      <div class="exp-icon" style="background:rgba(253,203,110,0.1)">🚀</div>
-      <h3>Lead Generation</h3>
-      <p>Generating 150–300 qualified leads per month through Meta campaigns with up to 3x ROAS in real estate.</p>
-    </div>
-    <div class="exp-card">
-      <div class="exp-icon" style="background:rgba(225,48,108,0.1)">👤</div>
-      <h3>Founder Branding</h3>
-      <p>Supporting founder-style personal branding content and positioning leadership as industry voices.</p>
-    </div>
-    <div class="exp-card">
-      <div class="exp-icon" style="background:rgba(108,92,231,0.1)">⚡</div>
-      <h3>Performance Optimization</h3>
-      <p>Improving lead generation through creative testing, audience optimization, and data-driven decisions.</p>
-    </div>
-  </div>
-</section>
+<div class="divider"></div>
 
-<!-- Tools -->
-<section id="tools">
-  <div class="animate">
-    <div class="section-label">02 — Tools & Proficiency</div>
-    <h2 class="section-title">Technical Toolkit</h2>
-    <p class="section-desc">Proficient across advertising platforms, design tools, video editing, analytics, and emerging AI workflows.</p>
+<!-- ==================== Q3: AI WORKFLOW ==================== -->
+<section id="q3">
+  <div class="anim">
+    <div class="section-label">Question 03</div>
+    <h2 class="section-title">AI Workflow & Review Process</h2>
+    <p class="section-desc">How I use AI in daily content and marketing workflow, and how I review AI-generated content before publishing.</p>
   </div>
-  <div class="tools-container animate">
-    <div class="tool-level">
-      <h3><span class="dot dot-advanced"></span> Advanced</h3>
-      <div class="tools-grid">
-        <div class="tool-item">
-          <h4>Meta Business Suite & Ads Manager</h4>
-          <p>Campaign setup, audience targeting, creative testing, performance optimization</p>
-        </div>
-        <div class="tool-item">
-          <h4>Canva</h4>
-          <p>Social media designs, presentations, marketing creatives</p>
-        </div>
-        <div class="tool-item">
-          <h4>CapCut</h4>
-          <p>Short-form video editing, subtitles, Reels/TikTok content</p>
-        </div>
-        <div class="tool-item">
-          <h4>Google Analytics</h4>
-          <p>Traffic analysis, campaign measurement</p>
-        </div>
-      </div>
-    </div>
-    <div class="tool-level">
-      <h3><span class="dot dot-intermediate"></span> Intermediate</h3>
-      <div class="tools-grid">
-        <div class="tool-item">
-          <h4>ChatGPT</h4>
-          <p>Content strategy, research, copywriting, repurposing</p>
-        </div>
-        <div class="tool-item">
-          <h4>Adobe Premiere Pro</h4>
-          <p>Video editing workflows</p>
-        </div>
-        <div class="tool-item">
-          <h4>Google Ads</h4>
-          <p>Search campaigns, performance monitoring</p>
-        </div>
-        <div class="tool-item">
-          <h4>SEO Tools</h4>
-          <p>Keyword research, content optimization</p>
-        </div>
-      </div>
-    </div>
-    <div class="tool-level">
-      <h3><span class="dot dot-beginner"></span> Learning</h3>
-      <div class="tools-grid">
-        <div class="tool-item">
-          <h4>AI Automation Agents</h4>
-          <p>AI workflow automation, content generation pipelines, agent-based marketing</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- AI Workflow -->
-<section id="ai-workflow">
-  <div class="animate">
-    <div class="section-label">03 — AI Workflow</div>
-    <h2 class="section-title">How I Use AI</h2>
-    <p class="section-desc">AI as a strategic assistant — never replacing human creativity, judgment, or compliance review.</p>
+  <div class="answer-box anim">
+    <div class="q-label">Answer</div>
+    <h3>AI as Strategic Assistant — Human Judgment Always Leads</h3>
+    <p>I use AI as a <strong>strategic assistant</strong>, never as a replacement for human creativity, editorial judgment, or compliance review. AI accelerates my workflow, but every piece of content passes through a structured human review before it reaches the audience.</p>
   </div>
-  <div class="workflow-steps animate">
-    <div class="workflow-step">
+
+  <div class="wf-steps anim">
+    <div class="wf-step">
       <h3>Research & Briefing</h3>
       <ul>
-        <li>Brand positioning</li>
-        <li>Target audience</li>
-        <li>Content goals</li>
-        <li>Approved messaging</li>
-        <li>Successful content examples</li>
+        <li>Brand positioning & guidelines</li>
+        <li>Target audience profile</li>
+        <li>Content objectives & KPIs</li>
+        <li>Approved messaging framework</li>
+        <li>Successful content examples for context</li>
       </ul>
     </div>
-    <div class="workflow-step">
-      <h3>AI Content Creation</h3>
+    <div class="wf-step">
+      <h3>AI Content Generation</h3>
       <ul>
-        <li>Content ideas & hooks</li>
-        <li>Video scripts</li>
-        <li>Caption variations</li>
-        <li>Content repurposing</li>
-        <li>Campaign brainstorming</li>
+        <li>Content ideas & hook variations</li>
+        <li>Video scripts & outlines</li>
+        <li>Caption variations for A/B testing</li>
+        <li>Content repurposing across platforms</li>
+        <li>Campaign brainstorming & angles</li>
       </ul>
     </div>
-    <div class="workflow-step">
+    <div class="wf-step">
       <h3>Human Review & Approval</h3>
       <ul>
-        <li>Fact checking</li>
-        <li>Brand voice consistency</li>
-        <li>Compliance review</li>
-        <li>Tone & originality check</li>
-        <li>Final editorial sign-off</li>
+        <li>Fact-checking all claims</li>
+        <li>Brand voice consistency check</li>
+        <li>Compliance & regulatory review</li>
+        <li>Tone, originality & risk assessment</li>
+        <li>Final editorial sign-off before publish</li>
       </ul>
     </div>
   </div>
-  <div class="animate" style="margin-top:2rem">
-    <div class="video-brief">
-      <h4 style="color:var(--accent);font-size:.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:1rem">Example AI Agent Prompt</h4>
-      <div class="hook">"Act as a B2B technology content strategist. Create a LinkedIn post for a founder discussing AI infrastructure adoption. The tone should be educational, credible, and avoid financial claims or exaggerated statements."</div>
-    </div>
+
+  <div class="detail-box anim" style="margin-top:1.5rem">
+    <h4>Example AI Agent Prompt</h4>
+    <div class="code-block">"Act as a B2B technology content strategist. Create a LinkedIn post for a founder discussing AI infrastructure adoption. The tone should be educational, credible, and avoid financial claims or exaggerated statements. The post should be 120–150 words, use short paragraphs, and end with a question to drive engagement."</div>
+    <h4 style="margin-top:1rem">How I Preserve the Chairman's Voice</h4>
+    <ul>
+      <li>I feed AI examples of the Chairman's previous posts, speaking style, and preferred vocabulary</li>
+      <li>I instruct AI to match tone markers: confident but measured, uses short declarative sentences, avoids jargon</li>
+      <li>I manually rewrite any output that sounds generic, overly promotional, or unlike the founder</li>
+      <li>I ensure the final post sounds like it was written by a person, not generated by a tool</li>
+    </ul>
+    <h4 style="margin-top:1rem">Where Human Approval Is Required</h4>
+    <ul>
+      <li><strong>Before any content is published</strong> — all AI output goes through my review</li>
+      <li><strong>Compliance-sensitive topics</strong> — any content touching financial, regulatory, or investment themes requires extra scrutiny</li>
+      <li><strong>Founder-branded content</strong> — the Chairman's personal posts must be reviewed for voice accuracy and reputational risk</li>
+      <li><strong>New platforms (X)</strong> — launch content requires careful calibration for tone and positioning</li>
+    </ul>
   </div>
 </section>
 
-<!-- Editorial Plan -->
+<div class="divider"></div>
+
+<!-- ==================== Q4: AVAILABILITY ==================== -->
+<section id="q4">
+  <div class="anim">
+    <div class="section-label">Question 04</div>
+    <h2 class="section-title">Availability</h2>
+  </div>
+  <div class="answer-box anim">
+    <div class="q-label">Answer</div>
+    <h3>Currently Based in Dubai — Available Immediately</h3>
+    <p>Yes, I am currently based in <strong>Dubai, UAE</strong> and available for a <strong>full-time, on-site role</strong>. I can start immediately — my earliest joining date is <strong>immediately / negotiable</strong>. I have no notice period requirement.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== TASK 1: EDITORIAL PLAN ==================== -->
 <section id="editorial">
-  <div class="animate">
-    <div class="section-label">04 — Editorial Plan</div>
-    <h2 class="section-title">One-Week Content Calendar</h2>
+  <div class="anim">
+    <div class="section-label">Task 01 — Editorial Plan</div>
+    <h2 class="section-title">One-Week Founder & Institutional Editorial Plan</h2>
     <p class="section-desc">Weekly Theme: "How AI Infrastructure Moves From Concept to Real-World Operation"</p>
   </div>
 
-  <!-- Brand Roles -->
-  <div class="posts-grid animate" style="margin-bottom:3rem">
-    <div class="post-card">
-      <div class="post-platform">Chairman — Personal Brand</div>
-      <div class="post-content">Purpose: Share leadership perspective, build trust, explain industry trends, humanize the company vision.
-Tone: Personal, insightful, experienced.</div>
+  <!-- OBJECTIVE -->
+  <div class="answer-box anim">
+    <div class="q-label">Objective</div>
+    <h3>Build Authority & Trust Around AI Infrastructure</h3>
+    <p>Position the Chairman as a credible industry voice while establishing The Universal Eye as a reliable source of educational insights on AI infrastructure. The plan strengthens both connected brands across LinkedIn, Instagram, and X — treating X as a new build requiring foundational presence.</p>
+  </div>
+
+  <!-- AUDIENCE -->
+  <div class="card-grid anim" style="margin-bottom:1.5rem">
+    <div class="card">
+      <h3>🎯 Priority Audience</h3>
+      <ul>
+        <li>Technology leaders & CTOs</li>
+        <li>Entrepreneurs & founders</li>
+        <li>Digital transformation professionals</li>
+        <li>Infrastructure specialists</li>
+        <li>Business decision makers in the region</li>
+      </ul>
     </div>
-    <div class="post-card">
-      <div class="post-platform">The Universal Eye</div>
-      <div class="post-content">Purpose: Provide education, share industry context, amplify company knowledge, build institutional credibility.
-Tone: Professional, analytical, informative.</div>
+    <div class="card">
+      <h3>🎭 Brand Roles</h3>
+      <p><strong>Chairman (Personal Brand):</strong> Share leadership perspective, build trust, explain trends, humanize the vision. Tone: personal, insightful, experienced.</p>
+      <p style="margin-top:.6rem"><strong>The Universal Eye (Institutional):</strong> Provide education, share context, amplify knowledge, build credibility. Tone: professional, analytical, informative.</p>
     </div>
   </div>
 
-  <!-- Calendar -->
-  <div class="animate" style="overflow-x:auto">
-    <table class="calendar-table">
+  <!-- 7-DAY CALENDAR -->
+  <h3 style="color:var(--white);font-size:1.1rem;margin-bottom:1rem" class="anim">Seven-Day Editorial Calendar</h3>
+  <div class="anim" style="overflow-x:auto">
+    <table class="cal-table">
       <thead>
         <tr>
+          <th>Order</th>
           <th>Day</th>
           <th>Account</th>
           <th>Platform</th>
@@ -405,99 +459,160 @@ Tone: Professional, analytical, informative.</div>
       </thead>
       <tbody>
         <tr>
+          <td><span class="order-num">1</span></td>
           <td style="color:var(--white);font-weight:600">Day 1</td>
           <td>Chairman</td>
-          <td><span class="platform-badge platform-linkedin">LinkedIn</span> <span class="platform-badge platform-instagram">Instagram</span></td>
+          <td><span class="badge b-li">LinkedIn</span><span class="badge b-ig">Instagram</span></td>
           <td>Short Video</td>
-          <td>Introduce AI infrastructure theme</td>
+          <td>Introduce AI infrastructure theme with founder perspective</td>
           <td>Follow the discussion</td>
         </tr>
         <tr>
+          <td><span class="order-num">2</span></td>
           <td style="color:var(--white);font-weight:600">Day 2</td>
           <td>Universal Eye</td>
-          <td><span class="platform-badge platform-linkedin">LinkedIn</span></td>
-          <td>Carousel</td>
-          <td>Explain AI infrastructure lifecycle</td>
+          <td><span class="badge b-li">LinkedIn</span></td>
+          <td>Carousel (5–7 slides)</td>
+          <td>Educate on AI infrastructure lifecycle — concept to operation</td>
           <td>Save & share</td>
         </tr>
         <tr>
+          <td><span class="order-num">3</span></td>
           <td style="color:var(--white);font-weight:600">Day 3</td>
           <td>Chairman</td>
-          <td><span class="platform-badge platform-x">X</span></td>
-          <td>Thread</td>
-          <td>Share founder perspective</td>
-          <td>Join conversation</td>
+          <td><span class="badge b-x">X</span></td>
+          <td>Thread (3 posts)</td>
+          <td>Share founder perspective, seed X presence with authority content</td>
+          <td>Join the conversation</td>
         </tr>
         <tr>
+          <td><span class="order-num">4</span></td>
           <td style="color:var(--white);font-weight:600">Day 4</td>
           <td>Universal Eye</td>
-          <td><span class="platform-badge platform-instagram">Instagram</span></td>
-          <td>Reel</td>
-          <td>Educational explanation</td>
+          <td><span class="badge b-ig">Instagram</span></td>
+          <td>Reel (30–45 sec)</td>
+          <td>Educational explanation of AI infrastructure in simple terms</td>
           <td>Share insights</td>
         </tr>
         <tr>
+          <td><span class="order-num">5</span></td>
           <td style="color:var(--white);font-weight:600">Day 5</td>
           <td>Chairman</td>
-          <td><span class="platform-badge platform-linkedin">LinkedIn</span></td>
-          <td>Thought Leadership</td>
-          <td>Build authority</td>
-          <td>Comment opinions</td>
+          <td><span class="badge b-li">LinkedIn</span></td>
+          <td>Thought Leadership Post</td>
+          <td>Build authority with a personal perspective on infrastructure</td>
+          <td>Comment your opinion</td>
         </tr>
         <tr>
+          <td><span class="order-num">6</span></td>
           <td style="color:var(--white);font-weight:600">Day 6</td>
           <td>Universal Eye</td>
-          <td><span class="platform-badge platform-x">X</span></td>
-          <td>Industry Commentary</td>
-          <td>Build new channel presence</td>
-          <td>Follow updates</td>
+          <td><span class="badge b-x">X</span></td>
+          <td>Industry Commentary (single post)</td>
+          <td>Build institutional presence on X with timely industry insight</td>
+          <td>Follow for updates</td>
         </tr>
         <tr>
+          <td><span class="order-num">7</span></td>
           <td style="color:var(--white);font-weight:600">Day 7</td>
           <td>Both</td>
-          <td><span class="platform-badge platform-linkedin">LinkedIn</span> <span class="platform-badge platform-instagram">Instagram</span></td>
-          <td>Weekly Summary</td>
-          <td>Reinforce learning</td>
-          <td>Engage with topic</td>
+          <td><span class="badge b-li">LinkedIn</span><span class="badge b-ig">Instagram</span></td>
+          <td>Weekly Recap Post</td>
+          <td>Reinforce learning, summarize key themes from the week</td>
+          <td>Engage with the topic</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- Video Brief -->
-  <div class="animate" style="margin-top:3rem">
-    <h3 style="color:var(--white);font-size:1.2rem;margin-bottom:1.5rem">Founder Short-Form Video Brief</h3>
-    <div class="video-brief">
-      <div class="hook">"AI does not create impact inside a demo. It creates impact when infrastructure becomes real."</div>
-      <p class="script">AI is moving beyond experiments. The next stage is building reliable infrastructure that businesses can use in real-world environments.<br><br>Successful AI adoption requires more than technology. It requires strong systems, responsible implementation, security, and operational excellence.<br><br>The organizations that prepare today will be better positioned for tomorrow's digital transformation.</p>
-      <div class="video-meta">
-        <div class="meta-item">
-          <label>On-Screen Text</label>
-          <p>AI Infrastructure: From Concept → Real-World Operation</p>
-        </div>
-        <div class="meta-item">
-          <label>CTA</label>
-          <p>"What AI infrastructure development will shape the next five years?"</p>
-        </div>
-        <div class="meta-item">
-          <label>Alternative Hook</label>
-          <p>"The future of AI will be built through infrastructure, not only algorithms."</p>
-        </div>
-        <div class="meta-item">
-          <label>Editing</label>
-          <p>45 sec, subtitles, corporate B-roll, strong 3s opening</p>
-        </div>
-      </div>
-    </div>
+  <!-- Publishing Order Rationale -->
+  <div class="detail-box anim" style="margin-top:1.5rem">
+    <h4>Publishing Order Rationale</h4>
+    <ul>
+      <li><strong>Day 1 (Chairman video):</strong> Lead with the founder's personal voice to set the theme and generate initial attention</li>
+      <li><strong>Day 2 (Universal Eye carousel):</strong> Follow with institutional education to deepen understanding and provide context</li>
+      <li><strong>Day 3 (Chairman X thread):</strong> Extend the founder conversation to X early, establishing presence on the weakest channel</li>
+      <li><strong>Day 4 (Universal Eye Instagram Reel):</strong> Visual educational content for Instagram audience, diversifying format</li>
+      <li><strong>Day 5 (Chairman LinkedIn):</strong> Mid-week authority post to sustain momentum and drive discussion</li>
+      <li><strong>Day 6 (Universal Eye X):</strong> Second X post to build consistency and institutional presence on the new channel</li>
+      <li><strong>Day 7 (Both platforms):</strong> Weekly summary reinforces the theme, encourages cross-platform engagement</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== VIDEO BRIEF ==================== -->
+<section id="video">
+  <div class="anim">
+    <div class="section-label">Founder Video Brief</div>
+    <h2 class="section-title">Short-Form Video — Chairman</h2>
+    <p class="section-desc">Designed for filming in the Dubai office, at an event, or during a site visit.</p>
   </div>
 
-  <!-- Finished Posts -->
-  <div class="animate" style="margin-top:3rem">
-    <h3 style="color:var(--white);font-size:1.2rem;margin-bottom:1.5rem">Finished Content</h3>
-    <div class="posts-grid">
-      <div class="post-card">
-        <div class="post-platform">LinkedIn — Chairman</div>
-        <div class="post-content">AI is moving from experimentation into execution.
+  <div class="vid-brief anim">
+    <h4 style="color:var(--accent);font-size:.75rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:.8rem">Hook — First 3 Seconds</h4>
+    <div class="hook-box">"AI does not create impact inside a demo. It creates impact when infrastructure becomes real."</div>
+
+    <h4 style="color:var(--accent);font-size:.75rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:.8rem;margin-top:1.5rem">Script — 45 Seconds</h4>
+    <p class="script-text">AI is moving beyond experiments. The next stage is building reliable infrastructure that businesses can use in real-world environments.<br><br>Successful AI adoption requires more than technology. It requires strong systems, responsible implementation, security, and operational excellence.<br><br>The organizations that prepare today will be better positioned for tomorrow's digital transformation.</p>
+
+    <div class="meta-grid">
+      <div class="meta-item">
+        <label>On-Screen Text</label>
+        <p>AI Infrastructure: From Concept → Real-World Operation</p>
+      </div>
+      <div class="meta-item">
+        <label>Caption</label>
+        <p>AI transformation is not only about advanced technology. It is about creating reliable systems that deliver practical value.</p>
+      </div>
+      <div class="meta-item">
+        <label>CTA</label>
+        <p>"What AI infrastructure development will shape the next five years?"</p>
+      </div>
+      <div class="meta-item">
+        <label>Alternative Hook (for testing)</label>
+        <p>"The future of AI will be built through infrastructure, not only algorithms."</p>
+      </div>
+      <div class="meta-item">
+        <label>Duration</label>
+        <p>45 seconds</p>
+      </div>
+      <div class="meta-item">
+        <label>Location</label>
+        <p>Dubai office / event / site visit</p>
+      </div>
+    </div>
+
+    <div class="detail-box" style="margin-top:1.2rem">
+      <h4>Editing & Pacing Notes</h4>
+      <ul>
+        <li>Strong opening — hook must land in first 3 seconds</li>
+        <li>Professional subtitles throughout (many watch without sound)</li>
+        <li>Clean corporate visuals — B-roll of office, technology, team meetings</li>
+        <li>Remove unnecessary pauses and filler words</li>
+        <li>Consistent branding — lower-third with Chairman name and title</li>
+        <li>End card with The Universal Eye logo and CTA</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== FINISHED CONTENT ==================== -->
+<section id="content">
+  <div class="anim">
+    <div class="section-label">Finished Content</div>
+    <h2 class="section-title">Ready-to-Publish Posts</h2>
+    <p class="section-desc">One LinkedIn post for the Chairman, one for The Universal Eye, and three X launch posts.</p>
+  </div>
+
+  <div class="posts-grid anim">
+    <!-- Chairman LinkedIn -->
+    <div class="post-card">
+      <div class="post-label">LinkedIn — Chairman</div>
+      <div class="post-body">AI is moving from experimentation into execution.
 
 The next phase of technology will not only depend on smarter models, but stronger infrastructure.
 
@@ -507,143 +622,226 @@ Building successful AI systems requires:
 • Responsible implementation
 • Long-term thinking
 
-The future belongs to organizations that can transform innovation into real-world capability.</div>
-      </div>
-      <div class="post-card">
-        <div class="post-platform">LinkedIn — The Universal Eye</div>
-        <div class="post-content">AI infrastructure is changing how organizations approach digital transformation.
+The future belongs to organizations that can transform innovation into real-world capability.
+
+What infrastructure investments will define the next decade of AI? I would like to hear your perspective.</div>
+    </div>
+
+    <!-- Universal Eye LinkedIn -->
+    <div class="post-card">
+      <div class="post-label">LinkedIn — The Universal Eye</div>
+      <div class="post-body">AI infrastructure is changing how organizations approach digital transformation.
 
 From data systems to operational platforms, the transition from concept to implementation requires knowledge, planning, and responsible execution.
 
-At The Universal Eye, we focus on understanding emerging technologies and sharing insights that help businesses navigate the future.</div>
-      </div>
-      <div class="post-card">
-        <div class="post-platform">X (Twitter) — Launch Posts</div>
-        <div class="post-content">Post 1: AI is moving from concept to operation. The next chapter is not only about smarter models. It is about stronger infrastructure.
+At The Universal Eye, we focus on understanding emerging technologies and sharing insights that help businesses navigate the future.
 
-Post 2: Technology creates impact when innovation connects with real-world execution. AI infrastructure is where ideas become systems.
-
-Post 3: The future of AI requires three things: Innovation. Responsibility. Reliable infrastructure.</div>
-      </div>
+Read our latest analysis on how AI infrastructure is shaping real-world operations.</div>
     </div>
-  </div>
 
-  <!-- Performance -->
-  <div class="animate" style="margin-top:3rem">
-    <h3 style="color:var(--white);font-size:1.2rem;margin-bottom:1.5rem">Performance Measurement</h3>
-    <div class="perf-grid">
-      <div class="perf-card">
-        <h3>Awareness</h3>
-        <ul>
-          <li>Reach</li>
-          <li>Share of voice</li>
-          <li>Brand mentions</li>
-        </ul>
-      </div>
-      <div class="perf-card">
-        <h3>Engagement Quality</h3>
-        <ul>
-          <li>Saves & shares</li>
-          <li>Comment quality</li>
-          <li>Video retention</li>
-        </ul>
-      </div>
-      <div class="perf-card">
-        <h3>Business Impact</h3>
-        <ul>
-          <li>Profile visits</li>
-          <li>Qualified inbound messages</li>
-          <li>Website actions & leads</li>
-        </ul>
-      </div>
+    <!-- X Post 1 -->
+    <div class="post-card">
+      <div class="post-label">X (Twitter) — Launch Post 1</div>
+      <div class="post-body">AI is moving from concept to operation.
+
+The next chapter is not only about smarter models.
+
+It is about stronger infrastructure.</div>
+    </div>
+
+    <!-- X Post 2 -->
+    <div class="post-card">
+      <div class="post-label">X (Twitter) — Launch Post 2</div>
+      <div class="post-body">Technology creates impact when innovation connects with real-world execution.
+
+AI infrastructure is where ideas become systems.</div>
+    </div>
+
+    <!-- X Post 3 -->
+    <div class="post-card">
+      <div class="post-label">X (Twitter) — Launch Post 3</div>
+      <div class="post-body">The future of AI requires three things:
+
+Innovation.
+Responsibility.
+Reliable infrastructure.</div>
     </div>
   </div>
 </section>
 
-<!-- Compliance -->
-<section id="compliance">
-  <div class="animate">
-    <div class="section-label">05 — Compliance Judgment</div>
-    <h2 class="section-title">Regulatory Awareness</h2>
-    <p class="section-desc">Demonstrating editorial judgment and compliance thinking for financial services content.</p>
+<div class="divider"></div>
+
+<!-- ==================== AI AGENT DETAIL ==================== -->
+<section id="ai-detail">
+  <div class="anim">
+    <div class="section-label">AI Agent Workflow — Detailed</div>
+    <h2 class="section-title">Directing AI Agents</h2>
+    <p class="section-desc">Tools used, information supplied, agent instructions, review stages, and where human approval is required.</p>
   </div>
-  <div class="compliance-box animate">
-    <h3 style="color:var(--white);margin-bottom:1rem">Would I Publish This Draft?</h3>
-    <div class="compliance-verdict">
-      <div class="verdict-no">✕ No</div>
-    </div>
-    <h4 style="color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem">Issues Identified</h4>
-    <ul class="issues-list">
-      <li>"Investment opportunity" creates financial promotion risk</li>
-      <li>"Investors can access" directly solicits investment</li>
-      <li>"Attractive returns" implies guaranteed financial benefit</li>
-      <li>"Future liquidity" creates unrealistic expectations</li>
-      <li>"Secure your position" creates urgency and sales pressure</li>
-      <li>Regulatory-adjacent topics require careful educational positioning</li>
+
+  <div class="detail-box anim">
+    <h4>Tools Used</h4>
+    <ul>
+      <li><strong>ChatGPT</strong> — content ideation, script drafting, caption variations, repurposing</li>
+      <li><strong>Canva AI</strong> — design suggestions, layout automation, brand template application</li>
+      <li><strong>CapCut AI</strong> — auto-captions, smart cuts, transitions, subtitle generation</li>
     </ul>
+
+    <h4 style="margin-top:1.2rem">Information Supplied to Agents</h4>
+    <ul>
+      <li>Brand guidelines (voice, tone, visual identity, dos and don'ts)</li>
+      <li>Target audience profile (demographics, interests, platform behavior)</li>
+      <li>Content objectives (awareness, engagement, lead generation)</li>
+      <li>Approved messaging framework (what we can and cannot say)</li>
+      <li>Examples of previous successful content for tone matching</li>
+    </ul>
+
+    <h4 style="margin-top:1.2rem">Agent Instructions & Guardrails</h4>
+    <ul>
+      <li>Maintain professional, credible tone at all times</li>
+      <li>Avoid unsupported claims, financial promises, or investment language</li>
+      <li>Do not create content that could be interpreted as financial promotion</li>
+      <li>Keep the founder's voice authentic — confident but measured</li>
+      <li>Suggest multiple creative options for human selection</li>
+      <li>Flag any content that touches regulatory or compliance-sensitive topics</li>
+    </ul>
+
+    <h4 style="margin-top:1.2rem">Review Stages (Human Approval Required)</h4>
+    <ul>
+      <li><strong>Stage 1 — Draft Review:</strong> I review AI-generated drafts for accuracy, tone, and brand alignment</li>
+      <li><strong>Stage 2 — Compliance Check:</strong> Any content touching financial, regulatory, or investment topics is flagged and reviewed for compliance risk</li>
+      <li><strong>Stage 3 — Founder Voice Check:</strong> Chairman-branded content is reviewed to ensure it sounds authentic and personal, not generic</li>
+      <li><strong>Stage 4 — Final Sign-off:</strong> Only after all checks pass does content receive final editorial approval for publishing</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== PERFORMANCE ==================== -->
+<section id="perf">
+  <div class="anim">
+    <div class="section-label">Performance Measurement</div>
+    <h2 class="section-title">Weekly Metrics & Response Plan</h2>
+    <p class="section-desc">Judging performance by qualified signals — not follower count alone.</p>
+  </div>
+
+  <div class="perf-grid anim">
+    <div class="perf-card">
+      <h3>Awareness</h3>
+      <ul>
+        <li>Reach (organic + amplification)</li>
+        <li>Share of voice vs. competitors</li>
+        <li>Brand mentions and tags</li>
+      </ul>
+    </div>
+    <div class="perf-card">
+      <h3>Engagement Quality</h3>
+      <ul>
+        <li>Saves (high-intent signal)</li>
+        <li>Shares and reposts</li>
+        <li>Comment quality and depth</li>
+        <li>Video retention rate (3s, 15s, completion)</li>
+      </ul>
+    </div>
+    <div class="perf-card">
+      <h3>Business Impact</h3>
+      <ul>
+        <li>Profile visits (Chairman + institutional)</li>
+        <li>Qualified inbound messages</li>
+        <li>Website actions from social</li>
+        <li>Relevant leads generated</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="detail-box anim" style="margin-top:1.5rem">
+    <h4>If Content Underperforms — One Specific Change</h4>
+    <p>If content underperforms, I would <strong>analyze the retention drop-off point</strong> in video content or the <strong>hook engagement rate</strong> in static posts. Specifically, I would test <strong>new opening hooks</strong> — the first 3 seconds of video or the first line of a post determine whether the audience stays or scrolls.</p>
+    <p style="margin-top:.6rem">For example, if Day 1's Chairman video shows a 40% drop-off in the first 3 seconds, I would replace the hook from a statement format to a question format: <em>"What happens when AI meets real infrastructure?"</em> — and re-test the same content with the new opening on Day 5.</p>
+    <p style="margin-top:.6rem">I would also test different content formats (e.g., carousel instead of video), adjust posting times based on audience online data, and refine topics to be more audience-focused rather than brand-focused.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== COMPLIANCE ==================== -->
+<section id="compliance">
+  <div class="anim">
+    <div class="section-label">Compliance Judgment Test</div>
+    <h2 class="section-title">Regulatory Awareness</h2>
+    <p class="section-desc">Demonstrating editorial judgment and compliance thinking for regulation-adjacent content.</p>
+  </div>
+
+  <div class="comp-box anim">
+    <h3 style="color:var(--white);margin-bottom:1rem">Draft Under Review</h3>
+    <div style="background:rgba(255,71,87,.05);border:1px solid rgba(255,71,87,.15);border-radius:10px;padding:1.2rem;margin-bottom:1.5rem;font-size:.88rem;color:var(--muted);line-height:1.7;font-style:italic">
+      "AI infrastructure is creating one of the strongest investment opportunities of the decade. Through our digital asset platforms, investors can access fractional ownership, attractive returns, and future liquidity. Contact us today to secure your position before the next phase launches."
+    </div>
+
+    <h3 style="color:var(--white);margin-bottom:.8rem">Would I Publish This?</h3>
+    <div class="verdict verdict-no">✕ No</div>
+
+    <h4 style="color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:1px;margin:1.5rem 0 .8rem">Material Editorial & Compliance Issues Identified</h4>
+    <ul class="issues">
+      <li><strong>"Investment opportunity"</strong> — creates financial promotion risk. The content positions the product as an investment, which may trigger regulatory requirements.</li>
+      <li><strong>"Investors can access"</strong> — directly solicits investment from the audience. This is a call to invest, not educational content.</li>
+      <li><strong>"Attractive returns"</strong> — implies guaranteed financial benefit. No content should promise or imply returns without proper disclaimers.</li>
+      <li><strong>"Future liquidity"</strong> — creates unrealistic expectations about financial outcomes and could mislead the audience.</li>
+      <li><strong>"Secure your position"</strong> — creates artificial urgency and sales pressure, which is inappropriate for institutional educational content.</li>
+      <li><strong>"Before the next phase launches"</strong> — time-pressure language designed to drive impulsive action, not informed decision-making.</li>
+      <li><strong>Overall tone</strong> — the entire draft reads as a sales pitch, not as educational or thought leadership content. This contradicts the institutional brand positioning.</li>
+    </ul>
+
     <div class="safe-rewrite">
       <h4>Safe Institutional Rewrite</h4>
-      <p>AI infrastructure is becoming a major area of technological development. As businesses explore digital transformation, understanding infrastructure, responsible implementation, and regulatory considerations will become increasingly important. We share insights on how emerging technologies are shaping the future of digital systems and real-world applications.</p>
+      <p>AI infrastructure is becoming a major area of technological development. As businesses explore digital transformation, understanding infrastructure, responsible implementation, and regulatory considerations will become increasingly important.<br><br>We share insights on how emerging technologies are shaping the future of digital systems and real-world applications. Our goal is to help businesses and professionals navigate this evolving landscape with clarity and confidence.</p>
     </div>
   </div>
 </section>
 
-<!-- Assumptions -->
+<div class="divider"></div>
+
+<!-- ==================== ASSUMPTIONS ==================== -->
 <section id="assumptions">
-  <div class="animate">
-    <div class="section-label">Assumptions</div>
+  <div class="anim">
+    <div class="section-label">Assumptions & Disclosures</div>
     <div class="assumptions">
       <ul>
-        <li>This assessment uses only publicly available information</li>
-        <li>No confidential company information was used</li>
-        <li>No investment claims, financial promises, or unpublished product details were included</li>
+        <li>This assessment uses only publicly available information from the Elchai Group website</li>
+        <li>No confidential, internal, or invented company information was used</li>
+        <li>No investment claims, financial promises, or unpublished product details were included in any content</li>
+        <li>AI tools (ChatGPT, Canva AI, CapCut AI) were used to assist with content drafting and are disclosed here</li>
+        <li>All final content was reviewed, edited, and approved by me before submission</li>
+        <li>Portfolio links, LinkedIn URL, and contact details should be updated before final submission</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- Contact -->
+<!-- ==================== CONTACT ==================== -->
 <section id="contact">
-  <div class="animate" style="text-align:center">
+  <div class="anim" style="text-align:center">
     <div class="section-label">Contact</div>
-    <h2 class="section-title">Let's Connect</h2>
-    <p class="section-desc" style="margin:0 auto 2rem">Ready to contribute to Elchai Group's social media growth and AI-driven content strategy.</p>
+    <h2 class="section-title">Abhishek PT</h2>
+    <p class="section-desc" style="margin:0 auto 2rem">Ready to contribute to Elchai Group's social media growth and AI-driven content strategy. Based in Dubai, available immediately for a full-time on-site role.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
       <a href="https://linkedin.com/in/YOUR-LINKEDIN" class="btn btn-primary" target="_blank">LinkedIn Profile</a>
       <a href="mailto:your-email@example.com" class="btn btn-outline">Send Email</a>
     </div>
-    <p style="color:var(--muted);font-size:.8rem;margin-top:2rem">Replace links above with your actual LinkedIn and email before sharing.</p>
+    <p style="color:var(--red);font-size:.75rem;margin-top:1.5rem">⚠ Replace the links above with your actual LinkedIn and email before sharing.</p>
   </div>
 </section>
 
-<!-- Footer -->
 <footer>
   <span class="name">Abhishek PT</span>
-  <p>Dubai, UAE — Prepared for Elchai Group Assessment</p>
+  <p>Dubai, UAE — Prepared for Elchai Group Social Media Marketing Manager Assessment</p>
 </footer>
 
 <script>
-// Scroll animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-
-// Smooth nav background
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('nav');
-  if (window.scrollY > 50) {
-    nav.style.background = 'rgba(10,10,15,0.95)';
-  } else {
-    nav.style.background = 'rgba(10,10,15,0.8)';
-  }
-});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')})},{threshold:.08});
+document.querySelectorAll('.anim').forEach(e=>obs.observe(e));
+window.addEventListener('scroll',()=>{const n=document.querySelector('nav');n.style.background=window.scrollY>50?'rgba(10,10,15,.95)':'rgba(10,10,15,.85)'});
 </script>
-
 </body>
 </html>
